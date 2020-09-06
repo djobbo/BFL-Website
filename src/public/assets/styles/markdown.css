@@ -1,0 +1,14 @@
+.markdown h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.markdown img {
+    max-width: 480px;
+    width: 100%;
+}
+
+.markdown p {
+    margin: 1rem 0;
+    line-height: 1.5rem;
+}

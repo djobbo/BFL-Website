@@ -1,0 +1,15 @@
+{
+	"short_name": "BlogStarter",
+	"name": "React Blog Starter",
+	"icons": [
+		{
+			"src": "assets/favicon.png",
+			"sizes": "512x512 256x256 128x128 64x64 32x32 24x24 8x8",
+			"type": "image/png"
+		}
+	],
+	"start_url": ".",
+	"display": "standalone",
+	"theme_color": "#000000",
+	"background_color": "#ffffff"
+}
