@@ -14,6 +14,7 @@ export const ArticleBanner = styled.img`
 export const ArticleWrapper = styled(motion.div)`
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
     background-color: white;
 `;
 

@@ -1,6 +1,6 @@
 # Brawlhalla French League
 
-## QUI SOMMES NOUS ?
+## Qui sommes-nous ?
 
 Notre association est née d'un projet, savoir ce que souhaite la communauté esportive Française sur Brawlhalla.
 

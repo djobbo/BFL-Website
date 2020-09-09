@@ -15,9 +15,7 @@ export const BlogPost: FC = () => {
         <MainLayout mainBackgroundImg={post.thumb.source} activePage="news">
             <ArticleWrapper initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }}>
                 <ArticleBanner src={post.thumb.source} />
-                <ArticleContent>
-                    <div className="markdown" dangerouslySetInnerHTML={{ __html: post.html }}></div>
-                </ArticleContent>
+                <ArticleContent className="markdown" dangerouslySetInnerHTML={{ __html: post.html }}></ArticleContent>
             </ArticleWrapper>
         </MainLayout>
     ) : (
