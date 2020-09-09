@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Page } from '../components/Page';
 
 import { MainBackground } from '../components/MainBackground';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { usePopper } from 'react-popper';
 
@@ -131,7 +131,7 @@ const MainNavDropdown = styled(motion.div)`
     position: absolute;
     display: flex;
     flex-direction: column;
-    background-color: black;
+    background-color: #0a1f3c;
     padding: 1rem;
     top: 5rem;
     max-height: 240px;
@@ -172,12 +172,22 @@ const MainNavDropdownLink: FC<PropsWithChildren<MainNavDropdownLinkProps>> = ({
                 style={styles.arrow}
             >
                 {children}
-                {dropdownOpened && (
-                    <MainNavDropdown ref={setPopperElement} style={styles.popper} {...attributes.popper}>
-                        <MainNavLink to="#">BRUH</MainNavLink>
-                        <MainNavLink to="#">BRUH</MainNavLink>
-                    </MainNavDropdown>
-                )}
+                <AnimatePresence>
+                    {dropdownOpened && (
+                        <MainNavDropdown
+                            ref={setPopperElement}
+                            style={styles.popper}
+                            {...attributes.popper}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            initial={{ opacity: 0 }}
+                            transition={{ duration: 0.25 }}
+                        >
+                            <MainNavLink to="#">BRUH</MainNavLink>
+                            <MainNavLink to="#">BRUH</MainNavLink>
+                        </MainNavDropdown>
+                    )}
+                </AnimatePresence>
             </MainNavLink>
         </>
     );
