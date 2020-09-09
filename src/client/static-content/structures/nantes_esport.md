@@ -1,6 +1,7 @@
 ---
 name: 'Nantes Esport'
 logo: 'Nantes_Esport.png'
+players: [{ name: 'Drowp', link: 'https://twitter.com/Drowp_BH' }]
 ---
 
 Nantes Esport est une structure de sport électronique officielle, basée à Nantes (France) et ouverte à l'international.

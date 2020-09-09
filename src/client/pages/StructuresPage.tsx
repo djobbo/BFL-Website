@@ -31,8 +31,13 @@ const StructureLogo = styled(motion.img)`
     object-fit: contain;
 `;
 
+const PlayersContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+`;
+
 export const StructuresPage: FC = () => {
-    console.log(data);
     return (
         <MainLayout mainBackgroundImg="/assets/imgs/Background.jpg" activePage="about">
             {data.map(({ attributes, html }, i) => (
@@ -47,10 +52,16 @@ export const StructuresPage: FC = () => {
                             <StructureLogo src={`assets/imgs/Structures/${attributes.logo}`} />
                             {attributes.name}
                         </StructureTitle>
-                        <ArticleContent
-                            className="markdown"
-                            dangerouslySetInnerHTML={{ __html: html }}
-                        ></ArticleContent>
+                        <ArticleContent>
+                            <div className="markdown" dangerouslySetInnerHTML={{ __html: html }}></div>
+                            <PlayersContainer>
+                                {attributes.players?.map((player) => (
+                                    <a key={player} href={player.link} rel="noreferrer" target="_blank">
+                                        {player.name}
+                                    </a>
+                                ))}
+                            </PlayersContainer>
+                        </ArticleContent>
                     </>
                 </StructureWrapper>
             ))}
