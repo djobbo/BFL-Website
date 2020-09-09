@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import { Page } from '../components/Page';
 
 import { MainBackground } from '../components/MainBackground';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { usePopper } from 'react-popper';
 
 const Wrapper = styled.div`
     width: 100vw;
@@ -124,6 +127,62 @@ const SocialIcon: FC<SocialIconProps> = ({ title, path, link }: SocialIconProps)
     );
 };
 
+const MainNavDropdown = styled(motion.div)`
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    padding: 1rem;
+    top: 5rem;
+    max-height: 240px;
+    min-width: 10rem;
+`;
+
+interface MainNavDropdownLinkProps {
+    to: string;
+    active?: boolean;
+    dropdown: {
+        link: string;
+        title: string;
+    }[];
+}
+
+const MainNavDropdownLink: FC<PropsWithChildren<MainNavDropdownLinkProps>> = ({
+    to,
+    children,
+    active,
+}: PropsWithChildren<MainNavDropdownLinkProps>) => {
+    const [dropdownOpened, setDropdownOpened] = useState(false);
+    const [referenceElement, setReferenceElement] = useState(null);
+    const [popperElement, setPopperElement] = useState(null);
+    const { styles, attributes } = usePopper(referenceElement, popperElement);
+
+    return (
+        <>
+            <MainNavLink
+                to={to}
+                onMouseEnter={() => {
+                    setDropdownOpened(true);
+                }}
+                onMouseLeave={() => {
+                    setDropdownOpened(false);
+                }}
+                ref={setReferenceElement}
+                active={active}
+                style={styles.arrow}
+            >
+                {children}
+                {dropdownOpened && (
+                    <MainNavDropdown ref={setPopperElement} style={styles.popper} {...attributes.popper}>
+                        <MainNavLink to="#">BRUH</MainNavLink>
+                        <MainNavLink to="#">BRUH</MainNavLink>
+                    </MainNavDropdown>
+                )}
+            </MainNavLink>
+        </>
+    );
+};
+
 interface Props {
     mainBackgroundImg?: string;
     activePage?: 'home' | 'news' | 'about';
@@ -156,9 +215,13 @@ export const MainLayout: FC<PropsWithChildren<Props>> = ({
                         Actus
                     </MainNavLink>
                     <MainNavLink to="#">Tournois</MainNavLink>
-                    <MainNavLink to="#" active={activePage === 'about'}>
+                    <MainNavDropdownLink
+                        to="#"
+                        active={activePage === 'about'}
+                        dropdown={[{ link: '#', title: 'BRUH' }]}
+                    >
                         A propos
-                    </MainNavLink>
+                    </MainNavDropdownLink>
                 </MainNav>
                 <Content>{children}</Content>
                 <SocialsNav>

@@ -14,9 +14,11 @@
     "dependencies": {
         "@mdi/js": "^5.5.55",
         "@mdi/react": "^1.4.0",
+        "@popperjs/core": "^2.4.4",
         "framer-motion": "^2.6.6",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
+        "react-popper": "^2.2.3",
         "react-router-dom": "^5.2.0",
         "styled-components": "^5.2.0"
     },

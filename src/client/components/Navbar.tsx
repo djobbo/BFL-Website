@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import { motion } from 'framer-motion';
+import React, { FC, PropsWithChildren } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -32,6 +34,42 @@ const MainNavLink = styled(Link)<{ active?: boolean }>`
     `}
 `;
 
+const MainNavDropdown = styled(motion.div)``;
+
+interface MainNavDropdownLinkProps {
+    to: string;
+}
+
+const MainNavDropdownLink: FC<PropsWithChildren<MainNavDropdownLinkProps>> = ({
+    to,
+    children,
+}: PropsWithChildren<MainNavDropdownLinkProps>) => {
+    const [dropdownOpened, setDropdownOpened] = useState(false);
+
+    console.log('XD');
+    return (
+        <>
+            <MainNavLink
+                to={to}
+                onMouseEnter={() => {
+                    console.log('xd');
+                    setDropdownOpened(true);
+                }}
+                onMouseLeave={() => {
+                    setDropdownOpened(false);
+                }}
+            >
+                {children}
+            </MainNavLink>
+            {dropdownOpened && (
+                <MainNavDropdown>
+                    <MainNavLink to="#">BRUH</MainNavLink>
+                </MainNavDropdown>
+            )}
+        </>
+    );
+};
+
 export const Navbar: FC = () => {
     return (
         <MainNav>
@@ -43,7 +81,7 @@ export const Navbar: FC = () => {
             </MainNavLink>
             <MainNavLink to="/actus">Actus</MainNavLink>
             <MainNavLink to="#">Tournois</MainNavLink>
-            <MainNavLink to="#">A propos</MainNavLink>
+            <MainNavDropdownLink to="#">A proposssssss</MainNavDropdownLink>
         </MainNav>
     );
 };
