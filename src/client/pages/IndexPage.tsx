@@ -6,7 +6,7 @@ import { MainLayout } from '../layout/MainLayout';
 const MainLogo = styled(motion.img)`
     height: 18rem;
     margin-bottom: 1rem;
-    max-width: 100vw;
+    max-width: 100%;
 `;
 
 const CTAButton = styled(motion.a)`

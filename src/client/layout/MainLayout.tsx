@@ -11,7 +11,7 @@ import { usePopper } from 'react-popper';
 import { mainNavigationMenu, INavItem } from './navigation';
 
 const Wrapper = styled.div`
-    width: 100vw;
+    width: 100%;
     height: 100%;
     display: grid;
     grid-template-rows: 8rem 1fr auto;
@@ -24,7 +24,7 @@ const Content = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 100vw;
+    max-width: 100%;
 `;
 
 const MainNav = styled.div`
@@ -32,7 +32,7 @@ const MainNav = styled.div`
     justify-content: space-around;
     align-items: center;
     max-width: 1200px;
-    width: 100vw;
+    width: 100%;
     margin: 0 auto;
     padding: 1rem 0;
 `;
