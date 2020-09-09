@@ -41,7 +41,7 @@ module.exports = {
         extensions: ['.js', '.ts', '.tsx', '.md', '.json'],
     },
     devServer: {
-        host: '192.168.1.11',
+        host: process.env.HOST || 'localhost',
         port: 31199,
         contentBase: 'dist',
         compress: true,
