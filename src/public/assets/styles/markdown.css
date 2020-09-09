@@ -12,3 +12,8 @@
     margin: 1rem 0;
     line-height: 1.5rem;
 }
+
+.markdown hr {
+    margin: 1rem 4rem;
+    border-bottom: 1px solid #0a1f3c;
+}

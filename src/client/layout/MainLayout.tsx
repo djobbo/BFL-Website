@@ -8,6 +8,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { usePopper } from 'react-popper';
 
+import { mainNavigationMenu, INavItem } from './navigation';
+
 const Wrapper = styled.div`
     width: 100vw;
     height: 100%;
@@ -42,6 +44,7 @@ const MainNavLink = styled(Link)<{ active?: boolean }>`
     font-size: 0.9rem;
     font-weight: bold;
     border-bottom: 2px solid transparent;
+    margin: 0.4rem 0;
     color: white !important;
 
     &:hover {
@@ -132,25 +135,25 @@ const MainNavDropdown = styled(motion.div)`
     display: flex;
     flex-direction: column;
     background-color: #0a1f3c;
-    padding: 1rem;
+    padding: 0.7rem 1rem;
     top: 5rem;
     max-height: 240px;
     min-width: 10rem;
+    border-left: 2px solid #ec424d;
+    box-shadow: 0 0 16px #0a1f3c;
 `;
 
 interface MainNavDropdownLinkProps {
     to: string;
     active?: boolean;
-    dropdown: {
-        link: string;
-        title: string;
-    }[];
+    subNav: INavItem[];
 }
 
 const MainNavDropdownLink: FC<PropsWithChildren<MainNavDropdownLinkProps>> = ({
     to,
     children,
     active,
+    subNav,
 }: PropsWithChildren<MainNavDropdownLinkProps>) => {
     const [dropdownOpened, setDropdownOpened] = useState(false);
     const [referenceElement, setReferenceElement] = useState(null);
@@ -183,8 +186,15 @@ const MainNavDropdownLink: FC<PropsWithChildren<MainNavDropdownLinkProps>> = ({
                             initial={{ opacity: 0 }}
                             transition={{ duration: 0.25 }}
                         >
-                            <MainNavLink to="#">BRUH</MainNavLink>
-                            <MainNavLink to="#">BRUH</MainNavLink>
+                            {subNav.map((navItem, i) => (
+                                <MainNavLink
+                                    key={i}
+                                    to={navItem.external ? `/redirect#${navItem.link}` : navItem.link}
+                                    target={navItem.target}
+                                >
+                                    {navItem.title}
+                                </MainNavLink>
+                            ))}
                         </MainNavDropdown>
                     )}
                 </AnimatePresence>
@@ -218,20 +228,27 @@ export const MainLayout: FC<PropsWithChildren<Props>> = ({
                     <MainNavLink to="/">
                         <img src="/assets/imgs/BFL_Logo.png" width="64px" />
                     </MainNavLink>
-                    <MainNavLink to="/" active={activePage === 'home'}>
-                        Accueil
-                    </MainNavLink>
-                    <MainNavLink to="/actus" active={activePage === 'news'}>
-                        Actus
-                    </MainNavLink>
-                    <MainNavLink to="#">Tournois</MainNavLink>
-                    <MainNavDropdownLink
-                        to="#"
-                        active={activePage === 'about'}
-                        dropdown={[{ link: '#', title: 'BRUH' }]}
-                    >
-                        A propos
-                    </MainNavDropdownLink>
+                    {mainNavigationMenu.map((navItem, i) =>
+                        navItem.subNav ? (
+                            <MainNavDropdownLink
+                                key={i}
+                                to={navItem.link}
+                                active={navItem.name && activePage === navItem.name}
+                                subNav={navItem.subNav}
+                            >
+                                {navItem.title}
+                            </MainNavDropdownLink>
+                        ) : (
+                            <MainNavLink
+                                key={i}
+                                to={navItem.external ? `/redirect#${navItem.link}` : navItem.link}
+                                active={navItem.name && activePage === navItem.name}
+                                target={navItem.target}
+                            >
+                                {navItem.title}
+                            </MainNavLink>
+                        ),
+                    )}
                 </MainNav>
                 <Content>{children}</Content>
                 <SocialsNav>

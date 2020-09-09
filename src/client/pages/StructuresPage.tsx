@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { MainLayout } from '../layout/MainLayout';
 import { ArticleWrapper, ArticleContent } from '../components/Article';
-import data from '../static-content/a-propos.md';
+import data from '../static-content/structures.md';
 
-export const AboutPage: FC = () => {
+export const StructuresPage: FC = () => {
     console.log(data);
     return (
         <MainLayout mainBackgroundImg="/assets/imgs/Background.jpg" activePage="about">

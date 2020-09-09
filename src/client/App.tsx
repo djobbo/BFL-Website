@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 import { ThemeContext, themeModes } from './providers/ThemeProvider';
 import { routes } from './routes';
-import { ErrorPage } from './pages/ErrorPage';
 
 const AppWrapper = styled.div``;
 
@@ -22,9 +21,6 @@ export const App: FC = () => {
                             <RouteComponent />
                         </Route>
                     ))}
-                    <Route path="/">
-                        <ErrorPage />
-                    </Route>
                 </Switch>
             </AnimatePresence>
         </AppWrapper>
