@@ -3,12 +3,11 @@ import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 import { MainLayout } from '../layout/MainLayout';
 import styled from 'styled-components';
-
-import { Posts } from '../util/postsLoader';
+import { useBlogPosts } from '../hooks/useBlogPosts';
 
 const PostsContainer = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
     margin: 0 auto;
     max-width: 1200px;
     width: 100%;
@@ -66,34 +65,40 @@ const ArticleDate = styled.p`
 `;
 
 export const NewsPage: FC = () => {
+    const [blogPosts, loading] = useBlogPosts();
     return (
         <MainLayout mainBackgroundImg="/assets/imgs/Background.jpg" activePage="news">
             <h1>Actualités</h1>
-            <PostsContainer>
-                {Posts.map(
-                    (post, i) =>
-                        i < 5 && (
-                            <Article
-                                key={post.permalink}
-                                initial={{ opacity: 0, y: 50 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: i * 0.05 }}
-                            >
-                                <div>
-                                    <NavLink to={post.permalink}>
-                                        <ArticleThumb src={post.thumb.source} alt={post.thumb.alt} />
-                                    </NavLink>
-                                    <ArticleContent>
-                                        <ArticleTitle to={post.permalink}>{post.title}</ArticleTitle>
-                                        <ArticleDesc>{post.desc}</ArticleDesc>
-                                    </ArticleContent>
-                                </div>
-                                <ArticleDate>{post.dateFormat}</ArticleDate>
-                            </Article>
-                        ),
-                    [],
-                )}
-            </PostsContainer>
+            {loading ? (
+                'loading'
+            ) : (
+                <PostsContainer>
+                    {blogPosts.map(({ fields: { title, slug, thumbnail, excerpt, content, date, author } }, i) => {
+                        const permalink = `/actus/${slug}`;
+                        return (
+                            i < 5 && (
+                                <Article
+                                    key={slug}
+                                    initial={{ opacity: 0, y: 50 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: i * 0.05 }}
+                                >
+                                    <div>
+                                        <NavLink to={permalink}>
+                                            <ArticleThumb src={thumbnail.fields.file.url} alt={slug} />
+                                        </NavLink>
+                                        <ArticleContent>
+                                            <ArticleTitle to={permalink}>{title}</ArticleTitle>
+                                            <ArticleDesc>bruh{excerpt}</ArticleDesc>
+                                        </ArticleContent>
+                                    </div>
+                                    <ArticleDate>{date}</ArticleDate>
+                                </Article>
+                            )
+                        );
+                    })}
+                </PostsContainer>
+            )}
         </MainLayout>
     );
 };

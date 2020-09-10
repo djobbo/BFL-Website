@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     entry: './src/client/index.tsx',
@@ -59,6 +60,7 @@ module.exports = {
             filename: 'index.html',
             inject: false,
         }),
+        new Dotenv(),
     ],
     stats: 'errors-warnings',
 };

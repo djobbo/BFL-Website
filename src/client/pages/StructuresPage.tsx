@@ -1,9 +1,11 @@
 import React, { FC } from 'react';
 import { MainLayout } from '../layout/MainLayout';
 import { ArticleContent } from '../components/Article';
-import data from '../static-content/structures/*.md';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
+import { useStructures } from '../hooks/useStructures';
 
 const StructureWrapper = styled(motion.div)`
     max-width: 1200px;
@@ -31,40 +33,33 @@ const StructureLogo = styled(motion.img)`
     object-fit: contain;
 `;
 
-const PlayersContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-`;
-
 export const StructuresPage: FC = () => {
+    const [structures, loading] = useStructures();
+    console.log(process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN);
+    console.log(structures, loading);
+
     return (
         <MainLayout mainBackgroundImg="/assets/imgs/Background.jpg" activePage="about">
-            {data.map(({ attributes, html }, i) => (
-                <StructureWrapper
-                    key={attributes.name}
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.05 }}
-                >
-                    <>
-                        <StructureTitle>
-                            <StructureLogo src={`assets/imgs/Structures/${attributes.logo}`} />
-                            {attributes.name}
-                        </StructureTitle>
-                        <ArticleContent>
-                            <div className="markdown" dangerouslySetInnerHTML={{ __html: html }}></div>
-                            <PlayersContainer>
-                                {attributes.players?.map((player) => (
-                                    <a key={player} href={player.link} rel="noreferrer" target="_blank">
-                                        {player.name}
-                                    </a>
-                                ))}
-                            </PlayersContainer>
-                        </ArticleContent>
-                    </>
-                </StructureWrapper>
-            ))}
+            {loading
+                ? 'loading'
+                : structures.map(({ fields: { name, content, logo } }, i) => (
+                      <StructureWrapper
+                          key={name}
+                          initial={{ opacity: 0, y: 50 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: i * 0.05 }}
+                      >
+                          <>
+                              <StructureTitle>
+                                  <StructureLogo src={logo.fields.file.url} />
+                                  {name}
+                              </StructureTitle>
+                              <ArticleContent>
+                                  <div className="markdown">{documentToReactComponents(content)}</div>
+                              </ArticleContent>
+                          </>
+                      </StructureWrapper>
+                  ))}
         </MainLayout>
     );
 };
