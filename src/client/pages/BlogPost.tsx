@@ -1,24 +1,30 @@
 import React, { FC } from 'react';
 import { MainLayout } from '../layout/MainLayout';
-import { ErrorPage } from './ErrorPage';
 
-import { findPost } from '../util/postsLoader';
-import { useLocation } from 'react-router-dom';
+import { Redirect, useLocation } from 'react-router-dom';
 
 import { ArticleWrapper, ArticleBanner, ArticleContent } from '../components/Article';
+import { useBlogPost } from '../hooks/useBlogPost';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 export const BlogPost: FC = () => {
     const { pathname } = useLocation();
-    const post = findPost(pathname);
+    const [blogPost, loading] = useBlogPost(pathname.replace('/actus/', ''));
 
-    return post ? (
-        <MainLayout mainBackgroundImg={post.thumb.source} activePage="news">
+    return loading ? (
+        <MainLayout mainBackgroundImg="/assets/imgs/Background.jpg" activePage="news">
+            loading
+        </MainLayout>
+    ) : blogPost ? (
+        <MainLayout mainBackgroundImg={blogPost.fields.thumbnail.fields.file.url} activePage="news">
             <ArticleWrapper initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }}>
-                <ArticleBanner src={post.thumb.source} />
-                <ArticleContent className="markdown" dangerouslySetInnerHTML={{ __html: post.html }}></ArticleContent>
+                <ArticleBanner src={blogPost.fields.thumbnail.fields.file.url} />
+                <ArticleContent className="markdown">
+                    {documentToReactComponents(blogPost.fields.content)}
+                </ArticleContent>
             </ArticleWrapper>
         </MainLayout>
     ) : (
-        <ErrorPage />
+        <Redirect to="/" />
     );
 };

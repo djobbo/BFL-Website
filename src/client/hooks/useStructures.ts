@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-
 import { getStructures, StructureEntry } from '../contentful';
 
 export const useStructures = (): [StructureEntry[], boolean] => {
