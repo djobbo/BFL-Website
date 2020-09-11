@@ -3,8 +3,8 @@ import { Entry, EntryFields, Asset } from 'contentful';
 import { Document } from '@contentful/rich-text-types';
 
 const client = createClient({
-    space: process.env.REACT_APP_CONTENTFUL_SPACE_ID,
-    accessToken: process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN,
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
 
 interface IStructure {
