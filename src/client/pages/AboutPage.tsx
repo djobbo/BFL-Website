@@ -4,7 +4,6 @@ import { ArticleWrapper, ArticleContent } from '../components/Article';
 import data from '../static-content/a-propos.md';
 
 export const AboutPage: FC = () => {
-    console.log(data);
     return (
         <MainLayout mainBackgroundImg="/assets/imgs/Background.jpg" activePage="about">
             <ArticleWrapper initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }}>

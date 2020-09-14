@@ -40,7 +40,7 @@ export const IndexPage: FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
             >
-                {`>> Nous Rejoindre <<`}
+                Nous Rejoindre
             </CTAButton>
         </MainLayout>
     );
