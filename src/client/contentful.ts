@@ -1,11 +1,5 @@
-import { createClient } from 'contentful';
 import { Entry, EntryFields, Asset } from 'contentful';
 import { Document } from '@contentful/rich-text-types';
-
-const client = createClient({
-    space: process.env.REACT_APP_CONTENTFUL_SPACE_ID,
-    accessToken: process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN,
-});
 
 interface IStructure {
     name: EntryFields.Text;
@@ -15,13 +9,7 @@ interface IStructure {
 
 export type StructureEntry = Entry<IStructure>;
 
-export const getStructures = (): Promise<StructureEntry[]> =>
-    client
-        .getEntries<IStructure>({
-            content_type: 'bflStructure',
-            order: 'fields.name',
-        })
-        .then((res) => res.items);
+export const getStructures = (): Promise<StructureEntry[]> => fetch('/structures').then((res) => res.json());
 
 interface IBlogPost {
     title: EntryFields.Text;
@@ -35,17 +23,6 @@ interface IBlogPost {
 
 export type BlogPostEntry = Entry<IBlogPost>;
 
-export const getBlogPosts = (): Promise<BlogPostEntry[]> =>
-    client
-        .getEntries<IBlogPost>({
-            content_type: 'bflBlogPost',
-        })
-        .then((res) => res.items);
+export const getBlogPosts = (): Promise<BlogPostEntry[]> => fetch('/blog').then((res) => res.json());
 
-export const getBlogPost = (slug: string): Promise<BlogPostEntry> =>
-    client
-        .getEntries<IBlogPost>({
-            'fields.slug': slug,
-            content_type: 'bflBlogPost',
-        })
-        .then((res) => res.items[0]);
+export const getBlogPost = (slug: string): Promise<BlogPostEntry> => fetch(`/blog/${slug}`).then((res) => res.json());

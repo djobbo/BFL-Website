@@ -7,7 +7,8 @@
         "start": "webpack-dev-server",
         "build": "rm -rf dist && webpack --mode production",
         "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
-        "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\""
+        "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+        "deploy": "firebase deploy --only hosting"
     },
     "author": "",
     "license": "ISC",
@@ -20,6 +21,7 @@
         "framer-motion": "^2.6.6",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
+        "react-helmet": "^6.1.0",
         "react-popper": "^2.2.3",
         "react-router-dom": "^5.2.0",
         "styled-components": "^5.2.0"
