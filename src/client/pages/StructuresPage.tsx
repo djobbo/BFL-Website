@@ -34,13 +34,15 @@ const StructureLogo = styled(motion.img)`
 `;
 
 export const StructuresPage: FC = () => {
-    const [structures, loading] = useStructures();
+    const [structures, loading, error] = useStructures();
     console.log(process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN);
     console.log(structures, loading);
 
     return (
         <MainLayout mainBackgroundImg="/assets/imgs/Background.jpg" activePage="about">
-            {loading
+            {error
+                ? 'Une erreur est survenue.'
+                : loading
                 ? 'loading'
                 : structures.map(({ fields: { name, content, logo } }, i) => (
                       <StructureWrapper

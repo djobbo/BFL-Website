@@ -9,9 +9,11 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 export const BlogPost: FC = () => {
     const { pathname } = useLocation();
-    const [blogPost, loading] = useBlogPost(pathname.replace('/actus/', ''));
+    const [blogPost, loading, error] = useBlogPost(pathname.replace('/actus/', ''));
 
-    return loading ? (
+    return error ? (
+        <>Une erreur est survenue.</>
+    ) : loading ? (
         <MainLayout mainBackgroundImg="/assets/imgs/Background.jpg" activePage="news">
             loading
         </MainLayout>

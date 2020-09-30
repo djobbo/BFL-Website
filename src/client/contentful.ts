@@ -9,7 +9,7 @@ interface IStructure {
 
 export type StructureEntry = Entry<IStructure>;
 
-export const getStructures = (): Promise<StructureEntry[]> => fetch('/structures').then((res) => res.json());
+export const getStructures = (): Promise<StructureEntry[]> => fetch('/api/structures').then((res) => res.json());
 
 interface IBlogPost {
     title: EntryFields.Text;
@@ -23,6 +23,7 @@ interface IBlogPost {
 
 export type BlogPostEntry = Entry<IBlogPost>;
 
-export const getBlogPosts = (): Promise<BlogPostEntry[]> => fetch('/blog').then((res) => res.json());
+export const getBlogPosts = (): Promise<BlogPostEntry[]> => fetch('/api/blog').then((res) => res.json());
 
-export const getBlogPost = (slug: string): Promise<BlogPostEntry> => fetch(`/blog/${slug}`).then((res) => res.json());
+export const getBlogPost = (slug: string): Promise<BlogPostEntry> =>
+    fetch(`/api/blog/${slug}`).then((res) => res.json());

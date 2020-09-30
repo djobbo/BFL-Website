@@ -1,16 +1,6 @@
-import { useEffect, useState } from 'react';
-import { getStructures, StructureEntry } from '../contentful';
+import { StructureEntry } from '../contentful';
+import { useFetchData } from './useFetchData';
 
-export const useStructures = (): [StructureEntry[], boolean] => {
-    const [structures, setStructures] = useState<StructureEntry[]>([]);
-    const [isLoading, setLoading] = useState(true);
-
-    useEffect(() => {
-        getStructures().then((data) => {
-            setStructures(data);
-            setLoading(false);
-        });
-    }, []);
-
-    return [structures, isLoading];
+export const useStructures = () => {
+    return useFetchData<StructureEntry[]>(`/api/structures`);
 };

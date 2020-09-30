@@ -65,11 +65,13 @@ const ArticleDate = styled.p`
 `;
 
 export const NewsPage: FC = () => {
-    const [blogPosts, loading] = useBlogPosts();
+    const [blogPosts, loading, error] = useBlogPosts();
     return (
         <MainLayout mainBackgroundImg="/assets/imgs/Background.jpg" activePage="news">
             <h1>Actualités</h1>
-            {loading ? (
+            {error ? (
+                'Une erreur est survenue.'
+            ) : loading ? (
                 'loading'
             ) : (
                 <PostsContainer>

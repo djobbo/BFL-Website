@@ -1,16 +1,6 @@
-import { useEffect, useState } from 'react';
-import { getBlogPosts, BlogPostEntry } from '../contentful';
+import { BlogPostEntry } from '../contentful';
+import { useFetchData } from './useFetchData';
 
-export const useBlogPosts = (): [BlogPostEntry[], boolean] => {
-    const [blogPosts, setBlogPosts] = useState<BlogPostEntry[]>([]);
-    const [isLoading, setLoading] = useState(true);
-
-    useEffect(() => {
-        getBlogPosts().then((data) => {
-            setBlogPosts(data);
-            setLoading(false);
-        });
-    }, []);
-
-    return [blogPosts, isLoading];
+export const useBlogPosts = () => {
+    return useFetchData<BlogPostEntry[]>(`/api/blog`);
 };
