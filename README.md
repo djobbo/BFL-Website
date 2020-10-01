@@ -1,3 +1,3 @@
-# Brawlhalla French League Blog
+# Site internet de Brawlhalla French League
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/2a19e61b-e5b9-4185-9396-c08caf838f41/deploy-status)](https://app.netlify.com/sites/bfl-web/deploys)
+Brawlhalla French League (BFL) est une association visant à promouvoir l'esport Brawlhalla en France par le biais de nombreux projets et tournois.
