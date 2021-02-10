@@ -39,7 +39,10 @@ export const MainLayout: FC<PropsWithChildren<Props>> = ({
 				<nav className={styles.mainNav}>
 					<Link href='/'>
 						<a className={styles.link}>
-							<img src='/assets/imgs/BFL_Logo.png' width='64px' />
+							<img
+								src='/assets/imgs/BFL_Logo.webp'
+								width='64px'
+							/>
 						</a>
 					</Link>
 					{mainNavigationMenu.map((navItem, i) =>

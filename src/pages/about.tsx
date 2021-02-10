@@ -9,7 +9,7 @@ export default function AboutPage() {
 				<meta content='About | BFL' property='og:title' />
 			</Head>
 			<MainLayout
-				mainBackgroundImg='/assets/imgs/Background.jpg'
+				mainBackgroundImg='/assets/imgs/Background.webp'
 				activePage='about'
 			>
 				About

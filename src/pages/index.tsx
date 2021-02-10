@@ -11,10 +11,10 @@ export default function HomePage() {
 				<title>Accueil | BFL</title>
 				<meta content='Accueil | BFL' property='og:title' />
 			</Head>
-			<MainLayout mainBackgroundImg='/assets/imgs/Background.jpg'>
+			<MainLayout mainBackgroundImg='/assets/imgs/Background.webp'>
 				<motion.img
 					className={styles.mainLogo}
-					src='/assets/imgs/Full_BFL_Logo.png'
+					src='/assets/imgs/Full_BFL_Logo.webp'
 					animate={{ scale: 1, opacity: 1 }}
 					initial={{ scale: 2.5, opacity: 0 }}
 					transition={{ duration: 0.3, ease: 'easeOut' }}

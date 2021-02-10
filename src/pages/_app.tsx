@@ -20,7 +20,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 				<link
 					rel='icon'
 					type='image/png'
-					href='/assets/imgs/BFL_Logo.png'
+					href='/assets/imgs/BFL_Logo.webp'
 				/>
 				<title>Brawlhalla French League</title>
 				<meta
@@ -42,7 +42,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 				/>
 
 				<meta
-					content='/assets/imgs/Background.jpg'
+					content='/assets/imgs/Background.webp'
 					property='og:image'
 				></meta>
 			</Head>

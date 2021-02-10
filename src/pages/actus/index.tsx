@@ -19,7 +19,7 @@ export default function NewsPage({ blogPosts }: Props) {
 				<meta content='Actus | BFL' property='og:title' />
 			</Head>
 			<MainLayout
-				mainBackgroundImg='/assets/imgs/Background.jpg'
+				mainBackgroundImg='/assets/imgs/Background.webp'
 				activePage='news'
 			>
 				<h1>Actualités</h1>

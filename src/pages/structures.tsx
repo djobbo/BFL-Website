@@ -21,7 +21,7 @@ export default function StructuresPage({ structures }: Props) {
 				<meta content='Structures | BFL' property='og:title' />
 			</Head>
 			<MainLayout
-				mainBackgroundImg='/assets/imgs/Background.jpg'
+				mainBackgroundImg='/assets/imgs/Background.webp'
 				activePage='about'
 			>
 				{structures.map(({ name, content, logo }, i) => (

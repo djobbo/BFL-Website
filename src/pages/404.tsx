@@ -12,7 +12,7 @@ export default function ErrorPage() {
 				<title>Oops | BFL</title>
 				<meta content='Oops | BFL' property='og:title' />
 			</Head>
-			<MainLayout mainBackgroundImg='/assets/imgs/Background.jpg'>
+			<MainLayout mainBackgroundImg='/assets/imgs/Background.webp'>
 				<motion.h1
 					className={styles.title}
 					initial={{ y: -100 }}
