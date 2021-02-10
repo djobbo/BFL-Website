@@ -1,0 +1,58 @@
+.postsContainer {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+	margin: 0 auto;
+	max-width: 1200px;
+	width: 100%;
+
+	.post {
+		background-color: white;
+		overflow: hidden;
+		margin: 0.5rem;
+		color: black;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		.thumb {
+			width: 100%;
+			max-height: 10rem;
+			object-fit: cover;
+			object-position: center;
+			overflow: hidden;
+			transition: 0.2s transform ease;
+
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
+
+		.content {
+			margin: 0.5rem 1rem;
+
+			.title {
+				font-size: 1.5rem;
+				display: block;
+				font-weight: bold;
+				margin-bottom: 0.5rem;
+				color: black;
+
+				&:hover {
+					color: #ec424d;
+				}
+			}
+
+			.desc {
+				line-height: 1.5rem;
+			}
+		}
+
+		.date {
+			padding: 0 1rem 0.5rem 0;
+			font-size: 0.875rem;
+			font-style: italic;
+			text-align: right;
+			opacity: 0.72;
+		}
+	}
+}

@@ -1,0 +1,20 @@
+.structure {
+	margin: 0 auto 2rem auto;
+
+	.title {
+		display: flex;
+		align-items: center;
+		color: #0a1f3c;
+		padding: 1rem 1rem 0 1rem;
+		width: 100%;
+		font-size: 2rem;
+		text-transform: uppercase;
+
+		.logo {
+			width: 4rem;
+			height: 4rem;
+			object-fit: contain;
+			margin-right: 1rem;
+		}
+	}
+}

@@ -1,0 +1,12 @@
+.dropdown {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	background-color: #0a1f3c;
+	padding: 0.7rem 1rem;
+	top: 5rem;
+	max-height: 240px;
+	min-width: 10rem;
+	border-left: 2px solid #ec424d;
+	box-shadow: 0 0 16px #0a1f3c;
+}

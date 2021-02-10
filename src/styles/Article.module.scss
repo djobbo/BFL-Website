@@ -1,0 +1,21 @@
+.article {
+	max-width: 1200px;
+	margin: 0 auto;
+	width: 100%;
+	background-color: white;
+
+	.banner {
+		z-index: -10;
+		top: 0;
+		width: 100%;
+		height: 16rem;
+		margin-bottom: 1rem;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	.content {
+		color: black;
+		padding: 1rem;
+	}
+}

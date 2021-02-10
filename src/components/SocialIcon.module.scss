@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    align-items: center;
+    min-width: 16rem;
+
+    &:hover {
+        div {
+            span {
+                background-color: #4e70cc;
+            }
+        }
+        svg {
+            fill: #4e70cc;
+        }
+    }
+
+    .icon {
+        height: 2rem;
+        width: 2rem;
+        min-height: 2rem;
+        min-width: 2rem;
+        margin-right: 0.5rem;
+        fill: #ec424d;
+    }
+
+    .meta {
+        .title {
+            background-color: #ec424d;
+            padding: 0.1rem 0.2rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .linkText {
+            background-color: transparent !important;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            color: white;
+        }
+    }
+}

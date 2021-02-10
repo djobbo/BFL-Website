@@ -1,0 +1,21 @@
+.markdown {
+    h1 {
+        font-size: 2rem;
+        text-transform: uppercase;
+    }
+
+    img {
+        max-width: 480px;
+        width: 100%;
+    }
+
+    p {
+        margin: 1rem 0;
+        line-height: 1.5rem;
+    }
+
+    hr {
+        margin: 1rem 4rem;
+        border-bottom: 1px solid #0a1f3c;
+    }
+}
