@@ -18,6 +18,7 @@ export default function StructuresPage({ structures }: Props) {
 		<>
 			<Head>
 				<title>Structures | BFL</title>
+				<meta content='Structures | BFL' property='og:title' />
 			</Head>
 			<MainLayout
 				mainBackgroundImg='/assets/imgs/Background.jpg'

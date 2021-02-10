@@ -16,6 +16,7 @@ export default function NewsPage({ blogPosts }: Props) {
 		<>
 			<Head>
 				<title>Actus | BFL</title>
+				<meta content='Actus | BFL' property='og:title' />
 			</Head>
 			<MainLayout
 				mainBackgroundImg='/assets/imgs/Background.jpg'

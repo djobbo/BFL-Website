@@ -9,6 +9,7 @@ export default function HomePage() {
 		<>
 			<Head>
 				<title>Accueil | BFL</title>
+				<meta content='Accueil | BFL' property='og:title' />
 			</Head>
 			<MainLayout mainBackgroundImg='/assets/imgs/Background.jpg'>
 				<motion.img

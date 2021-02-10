@@ -17,6 +17,7 @@ export default function BlogPost({ blogPost }: Props) {
 		<>
 			<Head>
 				<title>{blogPost.title} | BFL</title>
+				<meta content={`${blogPost.title} | BFL`} property='og:title' />
 			</Head>
 			<MainLayout
 				mainBackgroundImg={blogPost.thumbnail.url}

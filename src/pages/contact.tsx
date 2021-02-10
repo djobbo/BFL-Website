@@ -6,6 +6,7 @@ export default function ContactPage() {
 		<>
 			<Head>
 				<title>Contact | BFL</title>
+				<meta content='Contact | BFL' property='og:title' />
 			</Head>
 			<Page>
 				<h1>Contact</h1>

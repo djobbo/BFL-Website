@@ -10,6 +10,7 @@ export default function ErrorPage() {
 		<>
 			<Head>
 				<title>Oops | BFL</title>
+				<meta content='Oops | BFL' property='og:title' />
 			</Head>
 			<MainLayout mainBackgroundImg='/assets/imgs/Background.jpg'>
 				<motion.h1
