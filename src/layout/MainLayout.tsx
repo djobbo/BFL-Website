@@ -24,8 +24,8 @@ export const MainLayout: FC<PropsWithChildren<Props>> = ({
 			{mainBackgroundImg && (
 				<motion.div
 					className={styles.background}
-					initial={{ scale: 1 }}
-					animate={{ scale: 1.05 }}
+					initial={{ scale: 1, opacity: 0 }}
+					animate={{ scale: 1.05, opacity: '0.05' }}
 					transition={{ duration: 5, ease: 'easeOut' }}
 				>
 					<motion.img

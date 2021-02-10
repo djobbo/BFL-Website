@@ -7,6 +7,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { gql } from '@apollo/client';
 import { GetServerSideProps } from 'next';
 import { initializeApollo } from '../util/apollo';
+import Head from 'next/head';
 
 interface Props {
 	structures: any[]; //TODO: ANY
@@ -14,30 +15,35 @@ interface Props {
 
 export default function StructuresPage({ structures }: Props) {
 	return (
-		<MainLayout
-			mainBackgroundImg='/assets/imgs/Background.jpg'
-			activePage='about'
-		>
-			{structures.map(({ name, content, logo }, i) => (
-				<motion.div
-					className={styles.structure}
-					key={name}
-					initial={{ opacity: 0, y: 50 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ delay: i * 0.05 }}
-				>
-					<div className={articleStyles.article}>
-						<h1 className={styles.title}>
-							<img className={styles.logo} src={logo.url} />
-							{name}
-						</h1>
-						<div className={markdownStyles.markdown}>
-							{documentToReactComponents(content.json)}
+		<>
+			<Head>
+				<title>Structures | BFL</title>
+			</Head>
+			<MainLayout
+				mainBackgroundImg='/assets/imgs/Background.jpg'
+				activePage='about'
+			>
+				{structures.map(({ name, content, logo }, i) => (
+					<motion.div
+						className={styles.structure}
+						key={name}
+						initial={{ opacity: 0, y: 50 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ delay: i * 0.05 }}
+					>
+						<div className={articleStyles.article}>
+							<h1 className={styles.title}>
+								<img className={styles.logo} src={logo.url} />
+								{name}
+							</h1>
+							<div className={markdownStyles.markdown}>
+								{documentToReactComponents(content.json)}
+							</div>
 						</div>
-					</div>
-				</motion.div>
-			))}
-		</MainLayout>
+					</motion.div>
+				))}
+			</MainLayout>
+		</>
 	);
 }
 

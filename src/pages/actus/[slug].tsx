@@ -6,6 +6,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { initializeApollo } from '../../util/apollo';
 import { gql } from '@apollo/client';
 import { GetServerSideProps } from 'next';
+import Head from 'next/head';
 
 interface Props {
 	blogPost: any; //TODO: ANY
@@ -13,24 +14,29 @@ interface Props {
 
 export default function BlogPost({ blogPost }: Props) {
 	return (
-		<MainLayout
-			mainBackgroundImg={blogPost.thumbnail.url}
-			activePage='news'
-		>
-			<motion.div
-				className={articleStyles.article}
-				initial={{ opacity: 0, y: 50 }}
-				animate={{ opacity: 1, y: 0 }}
+		<>
+			<Head>
+				<title>{blogPost.title} | BFL</title>
+			</Head>
+			<MainLayout
+				mainBackgroundImg={blogPost.thumbnail.url}
+				activePage='news'
 			>
-				<img
-					className={articleStyles.banner}
-					src={blogPost.thumbnail.url}
-				/>
-				<div className={markdownStyles.markdown}>
-					{documentToReactComponents(blogPost.content.json)}
-				</div>
-			</motion.div>
-		</MainLayout>
+				<motion.div
+					className={articleStyles.article}
+					initial={{ opacity: 0, y: 50 }}
+					animate={{ opacity: 1, y: 0 }}
+				>
+					<img
+						className={articleStyles.banner}
+						src={blogPost.thumbnail.url}
+					/>
+					<div className={markdownStyles.markdown}>
+						{documentToReactComponents(blogPost.content.json)}
+					</div>
+				</motion.div>
+			</MainLayout>
+		</>
 	);
 }
 
