@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import articleStyles from '../../styles/Article.module.scss';
+import markdownStyles from '../../styles/markdown.module.scss';
 import { MainLayout } from '../../layout/MainLayout';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { initializeApollo } from '../../util/apollo';
@@ -25,7 +26,7 @@ export default function BlogPost({ blogPost }: Props) {
 					className={articleStyles.banner}
 					src={blogPost.thumbnail.url}
 				/>
-				<div className={`${articleStyles.content} markdown`}>
+				<div className={markdownStyles.markdown}>
 					{documentToReactComponents(blogPost.content.json)}
 				</div>
 			</motion.div>
@@ -36,40 +37,46 @@ export default function BlogPost({ blogPost }: Props) {
 export const getServerSideProps: GetServerSideProps<Props> = async ({
 	params: { slug },
 }) => {
-	const apolloClient = initializeApollo();
+	try {
+		const apolloClient = initializeApollo();
 
-	const res = await apolloClient.query({
-		query: gql`
-			query getPost($slug: String!) {
-				bflBlogPostCollection(where: { slug: $slug }) {
-					items {
-						title
-						slug
-						thumbnail {
-							url
+		const res = await apolloClient.query({
+			query: gql`
+				query getPost($slug: String!) {
+					bflBlogPostCollection(where: { slug: $slug }) {
+						items {
+							title
+							slug
+							thumbnail {
+								url
+							}
+							content {
+								json
+							}
+							date
+							author
 						}
-						content {
-							json
-						}
-						date
-						author
 					}
 				}
-			}
-		`,
-		variables: {
-			slug,
-		},
-	});
+			`,
+			variables: {
+				slug,
+			},
+		});
 
-	const blogPost = res.data?.bflBlogPostCollection?.items;
+		const blogPost = res.data?.bflBlogPostCollection?.items;
 
-	if (!blogPost?.length || blogPost.length <= 0)
+		if (!blogPost?.length || blogPost.length <= 0)
+			return {
+				notFound: true,
+			};
+
+		return {
+			props: { blogPost: res.data?.bflBlogPostCollection?.items[0] },
+		};
+	} catch (e) {
 		return {
 			notFound: true,
 		};
-
-	return {
-		props: { blogPost: res.data?.bflBlogPostCollection?.items[0] },
-	};
+	}
 };

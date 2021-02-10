@@ -72,38 +72,43 @@ export default function NewsPage({ blogPosts }: Props) {
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-	const apolloClient = initializeApollo();
+	try {
+		const apolloClient = initializeApollo();
 
-	const res = await apolloClient.query({
-		query: gql`
-			query getAllPosts($limit: Int!, $skip: Int!) {
-				bflBlogPostCollection(limit: $limit, skip: $skip) {
-					items {
-						title
-						slug
-						thumbnail {
-							url
+		const res = await apolloClient.query({
+			query: gql`
+				query getAllPosts($limit: Int!, $skip: Int!) {
+					bflBlogPostCollection(limit: $limit, skip: $skip) {
+						items {
+							title
+							slug
+							thumbnail {
+								url
+							}
+							excerpt
+							content {
+								json
+							}
+							date
+							author
 						}
-						excerpt
-						content {
-							json
-						}
-						date
-						author
 					}
 				}
-			}
-		`,
-		variables: {
-			skip: 0,
-			limit: 5,
-		},
-	});
+			`,
+			variables: {
+				skip: 0,
+				limit: 5,
+			},
+		});
 
-	console.log(res);
-	console.log(res.data.bflBlogPostCollection.items);
+		return {
+			props: { blogPosts: res.data?.bflBlogPostCollection?.items ?? [] },
+		};
+	} catch (e) {
+		// console.log(e?.networkError?.statusCode);
 
-	return {
-		props: { blogPosts: res.data?.bflBlogPostCollection?.items ?? [] },
-	};
+		return {
+			notFound: true,
+		};
+	}
 };

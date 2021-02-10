@@ -1,4 +1,5 @@
 import styles from '../styles/pages/StructuresPage.module.scss';
+import markdownStyles from '../styles/markdown.module.scss';
 import articleStyles from '../styles/Article.module.scss';
 import { MainLayout } from '../layout/MainLayout';
 import { motion } from 'framer-motion';
@@ -30,7 +31,7 @@ export default function StructuresPage({ structures }: Props) {
 							<img className={styles.logo} src={logo.url} />
 							{name}
 						</h1>
-						<div className={articleStyles.content}>
+						<div className={markdownStyles.markdown}>
 							{documentToReactComponents(content.json)}
 						</div>
 					</div>
@@ -41,30 +42,38 @@ export default function StructuresPage({ structures }: Props) {
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-	const apolloClient = initializeApollo();
+	try {
+		const apolloClient = initializeApollo();
 
-	const res = await apolloClient.query({
-		query: gql`
-			query getAllStructures {
-				bflStructureCollection {
-					items {
-						name
-						logo {
-							url
-						}
-						content {
-							json
+		const res = await apolloClient.query({
+			query: gql`
+				query getAllStructures {
+					bflStructureCollection {
+						items {
+							name
+							logo {
+								url
+							}
+							content {
+								json
+							}
 						}
 					}
 				}
-			}
-		`,
-		variables: {
-			skip: 0,
-		},
-	});
+			`,
+			variables: {
+				skip: 0,
+			},
+		});
 
-	return {
-		props: { structures: res.data?.bflStructureCollection?.items ?? [] },
-	};
+		return {
+			props: {
+				structures: res.data?.bflStructureCollection?.items ?? [],
+			},
+		};
+	} catch (e) {
+		return {
+			notFound: true,
+		};
+	}
 };

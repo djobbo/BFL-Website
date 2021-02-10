@@ -22,13 +22,18 @@ export const MainLayout: FC<PropsWithChildren<Props>> = ({
 	return (
 		<Page>
 			{mainBackgroundImg && (
-				<motion.img
+				<motion.div
 					className={styles.background}
-					src={mainBackgroundImg}
 					initial={{ scale: 1 }}
 					animate={{ scale: 1.05 }}
 					transition={{ duration: 5, ease: 'easeOut' }}
-				/>
+				>
+					<motion.img
+						src={mainBackgroundImg}
+						width='100%'
+						height='100%'
+					/>
+				</motion.div>
 			)}
 			<div className={styles.container}>
 				<nav className={styles.mainNav}>
