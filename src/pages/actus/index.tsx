@@ -3,12 +3,13 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { MainLayout } from '../../layout/MainLayout';
 import { initializeApollo } from '../../util/apollo';
-import { gql } from '@apollo/client';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 
+import GET_ALL_POSTS from '../../graphql/GetAllPostsQuery.gql';
+
 interface Props {
-	blogPosts: any[]; //TODO: ANY
+	blogPosts: IPost[];
 }
 
 export default function NewsPage({ blogPosts }: Props) {
@@ -47,24 +48,22 @@ export default function NewsPage({ blogPosts }: Props) {
 										animate={{ opacity: 1, y: 0 }}
 										transition={{ delay: i * 0.05 }}
 									>
-										<div>
+										<Link href={permalink}>
+											<img
+												className={styles.thumb}
+												src={thumbnail.url}
+												alt={slug}
+											/>
+										</Link>
+										<div className={styles.content}>
 											<Link href={permalink}>
-												<img
-													className={styles.thumb}
-													src={thumbnail.url}
-													alt={slug}
-												/>
+												<a className={styles.title}>
+													{title}
+												</a>
 											</Link>
-											<div className={styles.content}>
-												<Link href={permalink}>
-													<a className={styles.title}>
-														{title}
-													</a>
-												</Link>
-												<p className={styles.desc}>
-													{excerpt}
-												</p>
-											</div>
+											<p className={styles.desc}>
+												{excerpt}
+											</p>
 										</div>
 										<p className={styles.date}>{date}</p>
 									</motion.div>
@@ -83,25 +82,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 		const apolloClient = initializeApollo();
 
 		const res = await apolloClient.query({
-			query: gql`
-				query getAllPosts($limit: Int!, $skip: Int!) {
-					bflBlogPostCollection(limit: $limit, skip: $skip) {
-						items {
-							title
-							slug
-							thumbnail {
-								url
-							}
-							excerpt
-							content {
-								json
-							}
-							date
-							author
-						}
-					}
-				}
-			`,
+			query: GET_ALL_POSTS,
 			variables: {
 				skip: 0,
 				limit: 5,

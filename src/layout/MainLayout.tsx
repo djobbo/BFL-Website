@@ -1,17 +1,16 @@
 import React, { FC, PropsWithChildren } from 'react';
-import Link from 'next/link';
 import { Page } from '../components/Page';
 
 import styles from '../styles/MainLayout.module.scss';
 import { motion } from 'framer-motion';
 
-import { mainNavigationMenu } from './navigation';
 import { SocialIcon } from '../components/SocialIcon';
-import { MainNavDropdown } from '../components/MainNavDropdown';
+import { MainNav } from '../components/MainNav';
+import { MainNavNames } from './navigation';
 
 interface Props {
 	mainBackgroundImg?: string;
-	activePage?: 'home' | 'news' | 'about';
+	activePage?: MainNavNames;
 }
 
 export const MainLayout: FC<PropsWithChildren<Props>> = ({
@@ -36,39 +35,7 @@ export const MainLayout: FC<PropsWithChildren<Props>> = ({
 				</motion.div>
 			)}
 			<div className={styles.container}>
-				<nav className={styles.mainNav}>
-					<Link href='/'>
-						<a className={styles.link}>
-							<img
-								src='/assets/imgs/BFL_Logo.webp'
-								width='64px'
-							/>
-						</a>
-					</Link>
-					{mainNavigationMenu.map((navItem, i) =>
-						navItem.subNav ? (
-							<MainNavDropdown
-								key={i}
-								href={navItem.link}
-								active={
-									navItem.name && activePage === navItem.name
-								}
-								subNav={navItem.subNav}
-							>
-								{navItem.title}
-							</MainNavDropdown>
-						) : (
-							<Link key={i} href={navItem.link}>
-								<a
-									className={styles.link} //TODO: active
-									target={navItem.target}
-								>
-									{navItem.title}
-								</a>
-							</Link>
-						)
-					)}
-				</nav>
+				<MainNav activePage={activePage} />
 				<div className={styles.content}>{children}</div>
 				<div className={styles.socialsNav}>
 					<SocialIcon

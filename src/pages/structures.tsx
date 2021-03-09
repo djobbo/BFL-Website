@@ -4,13 +4,14 @@ import articleStyles from '../styles/Article.module.scss';
 import { MainLayout } from '../layout/MainLayout';
 import { motion } from 'framer-motion';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { gql } from '@apollo/client';
 import { GetServerSideProps } from 'next';
 import { initializeApollo } from '../util/apollo';
 import Head from 'next/head';
 
+import GET_ALL_STRUCTURES from '../graphql/GetAllStructuresQuery.gql';
+
 interface Props {
-	structures: any[]; //TODO: ANY
+	structures: IStructure[]; //TODO: ANY
 }
 
 export default function StructuresPage({ structures }: Props) {
@@ -53,21 +54,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 		const apolloClient = initializeApollo();
 
 		const res = await apolloClient.query({
-			query: gql`
-				query getAllStructures {
-					bflStructureCollection {
-						items {
-							name
-							logo {
-								url
-							}
-							content {
-								json
-							}
-						}
-					}
-				}
-			`,
+			query: GET_ALL_STRUCTURES,
 			variables: {
 				skip: 0,
 			},

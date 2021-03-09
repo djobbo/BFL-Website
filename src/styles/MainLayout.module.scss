@@ -30,35 +30,6 @@
 		align-items: center;
 	}
 
-	.mainNav {
-		display: flex;
-		justify-content: space-around;
-		align-items: center;
-		max-width: 1200px;
-		width: 100%;
-		margin: 0 auto;
-		padding: 1rem 0;
-
-		.link {
-			font-family: 'Roboto Condensed', sans-serif;
-			color: white;
-			text-transform: uppercase;
-			font-size: 0.9rem;
-			font-weight: bold;
-			border-bottom: 2px solid transparent;
-			margin: 0.4rem 0;
-			color: white !important;
-
-			&:hover {
-				color: #00ff97 !important;
-			}
-
-			&.active {
-				border-bottom: 2px solid #00ff97;
-			}
-		}
-	}
-
 	.socialsNav {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));

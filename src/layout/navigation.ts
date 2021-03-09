@@ -4,12 +4,14 @@ export interface INavItem {
 	target?: string;
 }
 
-export interface IMainNavItem extends INavItem {
-	name?: string;
+export interface IMainNavItem<T extends string> extends INavItem {
+	name?: T;
 	subNav?: { title: string; link: string }[];
 }
 
-export const mainNavigationMenu: IMainNavItem[] = [
+export type MainNavNames = 'home' | 'news' | 'about';
+
+export const mainNavigationMenu: IMainNavItem<MainNavNames>[] = [
 	{
 		name: 'home',
 		title: 'Accueil',

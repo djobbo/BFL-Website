@@ -1,0 +1,13 @@
+query {
+	bflStructureCollection {
+		items {
+			name
+			logo {
+				url
+			}
+			content {
+				json
+			}
+		}
+	}
+}

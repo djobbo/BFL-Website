@@ -1,0 +1,16 @@
+query($slug: String!) {
+	bflBlogPostCollection(where: { slug: $slug }) {
+		items {
+			title
+			slug
+			thumbnail {
+				url
+			}
+			content {
+				json
+			}
+			date
+			author
+		}
+	}
+}

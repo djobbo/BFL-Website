@@ -4,12 +4,13 @@ import markdownStyles from '../../styles/markdown.module.scss';
 import { MainLayout } from '../../layout/MainLayout';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { initializeApollo } from '../../util/apollo';
-import { gql } from '@apollo/client';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 
+import GET_POST from '../../graphql/GetPostQuery.gql';
+
 interface Props {
-	blogPost: any; //TODO: ANY
+	blogPost: IPost;
 }
 
 export default function BlogPost({ blogPost }: Props) {
@@ -48,24 +49,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
 		const apolloClient = initializeApollo();
 
 		const res = await apolloClient.query({
-			query: gql`
-				query getPost($slug: String!) {
-					bflBlogPostCollection(where: { slug: $slug }) {
-						items {
-							title
-							slug
-							thumbnail {
-								url
-							}
-							content {
-								json
-							}
-							date
-							author
-						}
-					}
-				}
-			`,
+			query: GET_POST,
 			variables: {
 				slug,
 			},

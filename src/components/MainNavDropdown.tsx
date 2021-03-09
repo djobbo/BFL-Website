@@ -1,5 +1,5 @@
 import styles from './MainNavDropdown.module.scss';
-import mainLayouStyles from '../styles/MainLayout.module.scss';
+import mainNavStyles from './MainNav.module.scss';
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { PropsWithChildren, useState } from 'react';
 import { usePopper } from 'react-popper';
@@ -29,7 +29,7 @@ export function MainNavDropdown({
 	return (
 		<Link href={href}>
 			<motion.a
-				className={mainLayouStyles.link}
+				className={mainNavStyles.link}
 				onMouseEnter={() => {
 					setDropdownOpened(true);
 				}}
@@ -56,7 +56,7 @@ export function MainNavDropdown({
 								<Link key={i} href={navItem.link}>
 									<a
 										target={navItem.target}
-										className={mainLayouStyles.link}
+										className={mainNavStyles.link}
 									>
 										{navItem.title}
 									</a>
