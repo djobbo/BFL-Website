@@ -34,6 +34,21 @@ export const Header = () => {
 						</Link>
 					);
 				})}
+				<div className={styles.ctaContainer}>
+					<Link href='https://discord.com/invite/XjNT9Y8'>
+						<a target='_blank' className={styles.cta}>
+							Discord
+						</a>
+					</Link>
+					<Link href='https://smash.gg/tournament/brawlhalla-french-league-year-two/details'>
+						<a
+							target='_blank'
+							className={`${styles.cta} ${styles.red}`}
+						>
+							Voir les tournois
+						</a>
+					</Link>
+				</div>
 			</nav>
 		</header>
 	);

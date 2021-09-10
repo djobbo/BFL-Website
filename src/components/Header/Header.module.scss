@@ -44,6 +44,23 @@
 				border-bottom: 2px solid $accent;
 			}
 		}
+
+		.ctaContainer {
+			margin-left: 4rem;
+
+			.cta {
+				padding: 0.4rem 0.75rem;
+				text-transform: uppercase;
+				background-color: $blue-dark;
+				color: $white;
+				font-size: 1.25rem;
+
+				&.red {
+					margin-left: 0.5rem;
+					background-color: $red;
+				}
+			}
+		}
 	}
 
 	&.scroll {

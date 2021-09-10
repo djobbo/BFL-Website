@@ -61,8 +61,10 @@ export default function HomePage({
 								Brawlhalla French League
 							</h1>
 							<div className={styles.ctaContainer}>
-								<Link href='#'>
-									<a className={styles.cta}>Rejoins-Nous</a>
+								<Link href='https://discord.com/invite/XjNT9Y8'>
+									<a className={styles.cta} target='_blank'>
+										Rejoins-Nous
+									</a>
 								</Link>
 								<div className={styles.iconsContainer}>
 									<Link href='https://discord.com/invite/XjNT9Y8'>
