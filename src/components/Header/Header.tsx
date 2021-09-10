@@ -12,14 +12,13 @@ export const Header = () => {
 		>
 			<Link href='/'>
 				<a className={styles.logo}>
-					<img src='/assets/images/BFL_Logo.webp' />
+					<img src='/assets/images/BFL_LOGO_Flat.png' />
 				</a>
 			</Link>
 
 			<nav className={styles.nav}>
 				{mainNavigationMenu.map((navItem, i) => {
 					const active = false;
-					// const active = navItem.name && activePage === navItem.name;
 
 					return (
 						<Link key={i} href={navItem.link}>

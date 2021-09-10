@@ -146,7 +146,7 @@ export default function HomePage({
 							</div>
 						</div>
 						<div className={styles.mainLogo}>
-							<img src='/assets/images/Full_BFL_Logo.webp' />
+							<img src='/assets/images/BFL_LOGO_Complet.png' />
 						</div>
 					</div>
 				</Container>
@@ -165,7 +165,7 @@ export default function HomePage({
 				</Container>
 				<div className={styles.about}>
 					<div className={styles.content}>
-						<img src='/assets/images/BFL_Logo.webp' alt='' />
+						<img src='/assets/images/BFL_Emblem.png' alt='' />
 						<div
 							dangerouslySetInnerHTML={{
 								__html: about.html,
