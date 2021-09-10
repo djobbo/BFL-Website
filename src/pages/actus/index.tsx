@@ -17,8 +17,11 @@ export default function NewsPage({ blogPosts }: Props) {
 	return (
 		<>
 			<Head>
-				<title>Actus | BFL</title>
-				<meta content='Actus | BFL' property='og:title' />
+				<title>Actus | Brawlhalla French League</title>
+				<meta
+					content='Actus | Brawlhalla French League'
+					property='og:title'
+				/>
 			</Head>
 			<MainLayout mainBackgroundImg='/assets/imgs/Background.webp'>
 				<Container>

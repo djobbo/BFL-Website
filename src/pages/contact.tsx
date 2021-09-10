@@ -5,8 +5,11 @@ export default function ContactPage() {
 	return (
 		<>
 			<Head>
-				<title>Contact | BFL</title>
-				<meta content='Contact | BFL' property='og:title' />
+				<title>Contact | Brawlhalla French League</title>
+				<meta
+					content='Contact | Brawlhalla French League'
+					property='og:title'
+				/>
 			</Head>
 			<Page>
 				<h1>Contact</h1>

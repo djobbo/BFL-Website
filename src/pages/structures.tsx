@@ -5,8 +5,11 @@ export default function StructuresPage() {
 	return (
 		<>
 			<Head>
-				<title>Structures | BFL</title>
-				<meta content='Structures | BFL' property='og:title' />
+				<title>Structures | Brawlhalla French League</title>
+				<meta
+					content='Structures | Brawlhalla French League'
+					property='og:title'
+				/>
 			</Head>
 			<MainLayout mainBackgroundImg='/assets/imgs/Background.webp'>
 				Structures

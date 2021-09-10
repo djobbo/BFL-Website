@@ -23,11 +23,16 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 					href='/assets/imgs/BFL_Logo.webp'
 				/>
 				<title>Brawlhalla French League</title>
+				<link
+					rel='icon'
+					type='image/png'
+					href='/assets/images/BFL_LOGO_Flat.png'
+				/>
 				<meta
 					name='viewport'
 					content='width=device-width,initial-scale=1'
 				/>
-				<meta name='theme-color' content='#101114' />
+				<meta name='theme-color' content='#0a1f3c' />
 				<meta
 					name='description'
 					content="Notre association est née d'un projet, savoir ce que souhaite la communauté esportive Française sur Brawlhalla. Ainsi suite à cette prise d'informations nous avons rassemblé une équipe de personnes motivées avec la volonté de faire évoluer l'esport Français sur Brawlhalla. Notre association a ainsi vu le jour en Novembre 2019 et a pu mobiliser plus 600 euros en récompenses de tournois depuis. (cashprize, loot in game...)"

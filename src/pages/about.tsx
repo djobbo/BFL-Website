@@ -5,8 +5,11 @@ export default function AboutPage() {
 	return (
 		<>
 			<Head>
-				<title>About | BFL</title>
-				<meta content='About | BFL' property='og:title' />
+				<title>About | Brawlhalla French League</title>
+				<meta
+					content='About | Brawlhalla French League'
+					property='og:title'
+				/>
 			</Head>
 			<MainLayout mainBackgroundImg='/assets/imgs/Background.webp'>
 				About

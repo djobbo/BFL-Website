@@ -16,8 +16,11 @@ export default function BlogPostPage({
 	return (
 		<>
 			<Head>
-				<title>{title} | BFL</title>
-				<meta content={`${title} | BFL`} property='og:title' />
+				<title>{title} | Brawlhalla French League</title>
+				<meta
+					content={`${title} | Brawlhalla French League`}
+					property='og:title'
+				/>
 			</Head>
 			<MainLayout mainBackgroundImg={thumb.url}>
 				<div

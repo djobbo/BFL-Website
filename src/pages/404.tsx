@@ -9,8 +9,11 @@ export default function ErrorPage() {
 	return (
 		<>
 			<Head>
-				<title>Oops | BFL</title>
-				<meta content='Oops | BFL' property='og:title' />
+				<title>Oops | Brawlhalla French League</title>
+				<meta
+					content='Oops | Brawlhalla French League'
+					property='og:title'
+				/>
 			</Head>
 			<MainLayout mainBackgroundImg='/assets/imgs/Background.webp'>
 				<motion.h1
