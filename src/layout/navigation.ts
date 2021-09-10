@@ -15,7 +15,7 @@ export const mainNavigationMenu: INavItem[] = [
 	},
 	{
 		title: 'Tournois',
-		link: 'https://smash.gg/tournament/brawlhalla-french-league-year-one/details',
+		link: 'https://smash.gg/tournament/brawlhalla-french-league-year-two/details',
 		external: true,
 	},
 	{

@@ -65,7 +65,7 @@ export default function HomePage({
 									<a className={styles.cta}>Rejoins-Nous</a>
 								</Link>
 								<div className={styles.iconsContainer}>
-									<Link href='#'>
+									<Link href='https://discord.com/invite/XjNT9Y8'>
 										<a
 											target='_blank'
 											className={styles.iconLink}
@@ -80,7 +80,7 @@ export default function HomePage({
 											</svg>
 										</a>
 									</Link>
-									<Link href='#'>
+									<Link href='https://twitter.com/BrawlhallaFL'>
 										<a
 											target='_blank'
 											className={styles.iconLink}
@@ -95,7 +95,7 @@ export default function HomePage({
 											</svg>
 										</a>
 									</Link>
-									<Link href='#'>
+									<Link href='https://www.twitch.tv/brawlhalla_french_league'>
 										<a
 											target='_blank'
 											className={styles.iconLink}
@@ -110,7 +110,7 @@ export default function HomePage({
 											</svg>
 										</a>
 									</Link>
-									<Link href='#'>
+									<Link href='https://www.youtube.com/channel/UCO5Q5IgPY82jUoNr4gMMFqw'>
 										<a
 											target='_blank'
 											className={styles.iconLink}
@@ -125,7 +125,7 @@ export default function HomePage({
 											</svg>
 										</a>
 									</Link>
-									<Link href='#'>
+									<Link href='https://smash.gg/tournament/brawlhalla-french-league-year-two/details'>
 										<a
 											target='_blank'
 											className={styles.iconLink}
