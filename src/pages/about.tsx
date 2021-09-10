@@ -8,10 +8,7 @@ export default function AboutPage() {
 				<title>About | BFL</title>
 				<meta content='About | BFL' property='og:title' />
 			</Head>
-			<MainLayout
-				mainBackgroundImg='/assets/imgs/Background.webp'
-				activePage='about'
-			>
+			<MainLayout mainBackgroundImg='/assets/imgs/Background.webp'>
 				About
 			</MainLayout>
 		</> //TODO: About

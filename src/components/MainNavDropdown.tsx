@@ -55,7 +55,9 @@ export function MainNavDropdown({
 							{subNav.map((navItem, i) => (
 								<Link key={i} href={navItem.link}>
 									<a
-										target={navItem.target}
+										target={
+											navItem.external ? '_blank' : null
+										}
 										className={mainNavStyles.link}
 									>
 										{navItem.title}
