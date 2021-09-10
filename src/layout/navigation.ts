@@ -14,8 +14,8 @@ export const mainNavigationMenu: INavItem[] = [
 		link: '/actus',
 	},
 	{
-		title: 'Tournois',
-		link: 'https://smash.gg/tournament/brawlhalla-french-league-year-two/details',
+		title: 'Stream',
+		link: 'https://www.twitch.tv/brawlhalla_french_league',
 		external: true,
 	},
 	{
