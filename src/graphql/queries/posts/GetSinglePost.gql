@@ -1,0 +1,17 @@
+query ($slug: String!) {
+	blogPosts(where: { slug: $slug }) {
+		id
+		publishedAt
+		title
+		thumb {
+			url
+		}
+		content {
+			html
+		}
+		excerpt {
+			html
+		}
+		slug
+	}
+}

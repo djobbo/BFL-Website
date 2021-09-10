@@ -1,5 +1,8 @@
+@import '@styles/theme.scss';
+
 .markdown {
-	color: black;
+	background-color: $white;
+	color: $bg;
 	padding: 1rem;
 
 	h1 {

@@ -1,0 +1,69 @@
+@import '@styles/theme.scss';
+
+.post {
+	display: flex;
+
+	& > * {
+		flex: 1;
+	}
+
+	.thumb {
+		width: 50%;
+		margin-right: 2rem;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.content {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		.title {
+			font-size: 1.5rem;
+			color: $white;
+			text-transform: uppercase;
+			margin-bottom: 1.5rem;
+		}
+
+		.excerpt {
+			margin: 1rem 0;
+
+			& * {
+				font-family: 'Montserrat', sans-serif;
+			}
+		}
+
+		.date {
+			font-size: 0.75rem;
+			margin-bottom: 1rem;
+			font-family: 'Montserrat', sans-serif;
+			color: $blue;
+		}
+
+		.readMore {
+			color: $white;
+			position: relative;
+			padding: 0 1rem;
+			text-transform: uppercase;
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				width: 2px;
+				background-color: $accent;
+			}
+
+			&::after {
+				content: '➞';
+				color: $accent;
+				margin-left: 1rem;
+			}
+		}
+	}
+}

@@ -1,0 +1,16 @@
+query ($first: Int!, $skip: Int!) {
+	blogPosts(first: $first, skip: $skip) {
+		title
+		slug
+		thumb {
+			url
+		}
+		content {
+			html
+		}
+		excerpt {
+			html
+		}
+		publishedAt
+	}
+}

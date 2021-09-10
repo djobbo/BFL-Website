@@ -9,7 +9,7 @@
 	width: 100%;
 
 	.post {
-		background-color: #101114;
+		background-color: white;
 		overflow: hidden;
 		color: black;
 		display: grid;
@@ -17,9 +17,7 @@
 		grid-template-rows: 240px auto auto;
 		grid-template-areas: 'thumb' 'content' 'date';
 		justify-content: space-between;
-		border-radius: 16px;
 		margin: 0 1rem;
-		color: white;
 
 		.thumb {
 			grid-area: thumb;
@@ -46,7 +44,7 @@
 				font-weight: bold;
 				text-transform: uppercase;
 				margin-bottom: 0.5rem;
-				color: white;
+				color: black;
 
 				&:hover {
 					color: #ec424d;

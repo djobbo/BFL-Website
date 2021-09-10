@@ -45,6 +45,22 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 					content='/assets/imgs/Background.webp'
 					property='og:image'
 				></meta>
+				<link
+					rel='preload'
+					href='assets/fonts/Upbolters/Regular.otf'
+					as='font'
+					crossOrigin=''
+				/>
+				<link rel='preconnect' href='https://fonts.googleapis.com' />
+				<link
+					rel='preconnect'
+					href='https://fonts.gstatic.com'
+					crossOrigin='anonymous'
+				/>
+				<link
+					href='https://fonts.googleapis.com/css2?family=Montserrat&display=swap'
+					rel='stylesheet'
+				></link>
 			</Head>
 			<AnimateSharedLayout>
 				<div id='App'>

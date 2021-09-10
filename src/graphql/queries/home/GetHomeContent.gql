@@ -1,0 +1,21 @@
+query {
+	homePages {
+		about {
+			html
+		}
+		results {
+			url
+		}
+		blogPosts {
+			title
+			slug
+			thumb {
+				url
+			}
+			excerpt {
+				html
+			}
+			publishedAt
+		}
+	}
+}

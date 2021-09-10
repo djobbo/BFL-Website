@@ -1,21 +1,138 @@
-.mainLogo {
-	height: 18rem;
-	margin-bottom: 1rem;
-	max-width: 100%;
+@import '@styles/theme.scss';
+
+.landing {
+	min-height: 60vh;
+	display: flex;
+	align-items: center;
+	padding: 8rem 0;
+	flex-wrap: wrap;
+	padding: 8rem 4rem;
+
+	.content {
+		flex: 3;
+		margin-right: 4rem;
+
+		.subtitle {
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			color: $red;
+		}
+
+		.title {
+			font-size: 4.5rem;
+			text-transform: uppercase;
+			margin-bottom: 0.75rem;
+		}
+
+		.ctaContainer {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 1rem 0;
+
+			.cta {
+				padding: 0.5rem 1rem;
+				background-color: transparent;
+				border: 1px solid $accent;
+				text-transform: uppercase;
+				color: $accent;
+				font-size: 1.5rem;
+				margin-right: 1.5rem;
+
+				&:hover {
+					background-color: $accent;
+					color: $bg;
+				}
+			}
+
+			.iconsContainer {
+				display: flex;
+				align-items: center;
+
+				.iconLink {
+					margin-right: 1.5rem;
+					width: 1.5rem;
+					height: 1.5rem;
+					fill: $blue;
+
+					&:hover {
+						fill: $white;
+					}
+				}
+			}
+		}
+	}
+
+	.mainLogo {
+		flex: 2;
+		height: 32rem;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			object-position: center;
+			min-width: 320px;
+		}
+	}
 }
 
-.ctaBtn {
-	padding: 0.75rem 1.5rem;
-	background-color: transparent;
-	border: 1px solid #00ff97;
-	font-weight: bold;
-	text-transform: uppercase;
-	color: #00ff97;
-	font-size: 1.1rem;
-	font-family: 'Roboto Condensed', sans-serif;
+.trailerVideo {
+	display: flex;
+	justify-content: center;
+	margin-bottom: -5rem;
 
-	&:hover {
-		background-color: #00ff97;
-		color: #101114;
+	iframe {
+		border: none;
+		box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.25);
+	}
+}
+
+.sectionTitle {
+	padding-top: 5rem;
+	font-size: 2rem;
+	text-transform: uppercase;
+}
+
+.about {
+	padding: 10rem 0 5rem 0;
+	background-color: $white;
+	color: $bg;
+	border-top: 0.5rem solid $red;
+
+	.content {
+		margin: 0 auto;
+		max-width: 720px;
+		display: flex;
+		align-items: center;
+		line-height: 1.5rem;
+
+		p {
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		img {
+			width: 12rem;
+			height: 12rem;
+			margin-right: 2.5rem;
+		}
+	}
+}
+
+.results {
+	padding: 0 0 5rem 0;
+	background-color: $white-alt;
+	color: $bg;
+
+	.resultsImages {
+		margin-top: 2rem;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+		gap: 2.5rem;
+		justify-items: center;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
 	}
 }
