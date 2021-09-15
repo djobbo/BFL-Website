@@ -55,7 +55,7 @@ export default function HomePage({
 					<div className={styles.landing}>
 						<div className={styles.content}>
 							<span className={styles.subtitle}>
-								Bienvenue sur la
+								Bienvenue sur le
 							</span>
 							<h1 className={styles.title}>
 								Brawlhalla French Lobby
