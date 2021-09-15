@@ -1,1 +1,1 @@
-# Brawlhalla French League Website
+# Brawlhalla French Lobby Website

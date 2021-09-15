@@ -5,9 +5,9 @@ export default function StructuresPage() {
 	return (
 		<>
 			<Head>
-				<title>Structures | Brawlhalla French League</title>
+				<title>Structures | Brawlhalla French Lobby</title>
 				<meta
-					content='Structures | Brawlhalla French League'
+					content='Structures | Brawlhalla French Lobby'
 					property='og:title'
 				/>
 			</Head>

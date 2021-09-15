@@ -5,9 +5,9 @@ export default function AboutPage() {
 	return (
 		<>
 			<Head>
-				<title>About | Brawlhalla French League</title>
+				<title>About | Brawlhalla French Lobby</title>
 				<meta
-					content='About | Brawlhalla French League'
+					content='About | Brawlhalla French Lobby'
 					property='og:title'
 				/>
 			</Head>

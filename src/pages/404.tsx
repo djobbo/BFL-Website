@@ -9,9 +9,9 @@ export default function ErrorPage() {
 	return (
 		<>
 			<Head>
-				<title>Oops | Brawlhalla French League</title>
+				<title>Oops | Brawlhalla French Lobby</title>
 				<meta
-					content='Oops | Brawlhalla French League'
+					content='Oops | Brawlhalla French Lobby'
 					property='og:title'
 				/>
 			</Head>

@@ -16,9 +16,9 @@ export default function BlogPostPage({
 	return (
 		<>
 			<Head>
-				<title>{title} | Brawlhalla French League</title>
+				<title>{title} | Brawlhalla French Lobby</title>
 				<meta
-					content={`${title} | Brawlhalla French League`}
+					content={`${title} | Brawlhalla French Lobby`}
 					property='og:title'
 				/>
 			</Head>

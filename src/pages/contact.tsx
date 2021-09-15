@@ -5,9 +5,9 @@ export default function ContactPage() {
 	return (
 		<>
 			<Head>
-				<title>Contact | Brawlhalla French League</title>
+				<title>Contact | Brawlhalla French Lobby</title>
 				<meta
-					content='Contact | Brawlhalla French League'
+					content='Contact | Brawlhalla French Lobby'
 					property='og:title'
 				/>
 			</Head>

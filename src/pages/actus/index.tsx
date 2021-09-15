@@ -17,9 +17,9 @@ export default function NewsPage({ blogPosts }: Props) {
 	return (
 		<>
 			<Head>
-				<title>Actus | Brawlhalla French League</title>
+				<title>Actus | Brawlhalla French Lobby</title>
 				<meta
-					content='Actus | Brawlhalla French League'
+					content='Actus | Brawlhalla French Lobby'
 					property='og:title'
 				/>
 			</Head>

@@ -44,9 +44,9 @@ export default function HomePage({
 	return (
 		<>
 			<Head>
-				<title>Accueil | Brawlhalla French League</title>
+				<title>Accueil | Brawlhalla French Lobby</title>
 				<meta
-					content='Accueil | Brawlhalla French League'
+					content='Accueil | Brawlhalla French Lobby'
 					property='og:title'
 				/>
 			</Head>
@@ -58,7 +58,7 @@ export default function HomePage({
 								Bienvenue sur la
 							</span>
 							<h1 className={styles.title}>
-								Brawlhalla French League
+								Brawlhalla French Lobby
 							</h1>
 							<div className={styles.ctaContainer}>
 								<Link href='https://discord.com/invite/XjNT9Y8'>
