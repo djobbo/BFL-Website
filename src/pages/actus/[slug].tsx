@@ -5,6 +5,7 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 
 import { BlogPost, fetchSinglePost } from '@graphql/queries/posts';
+import { Container } from '@components/Container';
 
 interface Props {
 	blogPost: BlogPost;
@@ -23,10 +24,13 @@ export default function BlogPostPage({
 				/>
 			</Head>
 			<MainLayout mainBackgroundImg={thumb.url}>
-				<div
-					className={markdownStyles.markdown}
-					dangerouslySetInnerHTML={{ __html: content.html }}
-				/>
+				<div className={markdownStyles.markdown}>
+					<Container>
+						<div
+							dangerouslySetInnerHTML={{ __html: content.html }}
+						/>
+					</Container>
+				</div>
 			</MainLayout>
 		</>
 	);

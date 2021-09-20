@@ -13,6 +13,8 @@ export const ArticlePreview = ({
 }: Props) => {
 	const permalink = `/actus/${slug}`;
 
+	const date = new Date(publishedAt).toLocaleString('fr-FR');
+
 	return (
 		<article className={styles.post}>
 			<Link href={permalink}>
@@ -25,7 +27,7 @@ export const ArticlePreview = ({
 					<Link href={permalink}>
 						<a className={styles.title}>{title}</a>
 					</Link>
-					<p className={styles.date}>{publishedAt}</p>
+					<p className={styles.date}>{date}</p>
 					<div
 						className={styles.excerpt}
 						dangerouslySetInnerHTML={{ __html: excerpt.html }}

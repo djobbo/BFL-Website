@@ -1,5 +1,6 @@
 import React, { FC, PropsWithChildren, ReactNode } from 'react';
 import { Page } from '@components/Page';
+import Image from 'next/image';
 
 import styles from '@styles/MainLayout.module.scss';
 import { motion } from 'framer-motion';
@@ -21,11 +22,7 @@ export const MainLayout: FC<Props> = ({ children, mainBackgroundImg }) => {
 					animate={{ scale: 1.05, opacity: '0.05' }}
 					transition={{ duration: 5, ease: 'easeOut' }}
 				>
-					<motion.img
-						src={mainBackgroundImg}
-						width='100%'
-						height='100%'
-					/>
+					<Image src={mainBackgroundImg} layout='fill' />
 				</motion.div>
 			)}
 			<Header />

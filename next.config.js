@@ -1,4 +1,7 @@
 module.exports = {
+	images: {
+		domains: ['media.graphcms.com'],
+	},
 	webpack: (config) => {
 		config.module.rules.push({
 			test: /\.(graphql|gql)$/,

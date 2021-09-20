@@ -1,12 +1,7 @@
 @import '@styles/theme.scss';
 
 .post {
-	display: flex;
-
-	& > * {
-		flex: 1;
-	}
-
+	background-color: $white;
 	.thumb {
 		width: 50%;
 		margin-right: 2rem;
@@ -17,13 +12,16 @@
 	}
 
 	.content {
+		min-height: 12rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+		color: $bg;
+		padding: 1rem;
 
 		.title {
 			font-size: 1.5rem;
-			color: $white;
+			color: $bg;
 			text-transform: uppercase;
 			margin-bottom: 1.5rem;
 		}
@@ -44,24 +42,13 @@
 		}
 
 		.readMore {
-			color: $white;
+			color: $blue;
 			position: relative;
-			padding: 0 1rem;
 			text-transform: uppercase;
-
-			&::before {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: 0;
-				bottom: 0;
-				width: 2px;
-				background-color: $accent;
-			}
 
 			&::after {
 				content: '➞';
-				color: $accent;
+				color: $blue;
 				margin-left: 1rem;
 			}
 		}
